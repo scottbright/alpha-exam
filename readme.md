@@ -11,9 +11,9 @@
 Create Database using docker-compose that we provided
 
 ### Database
-Database: MSSQL
-Account: SA
-Password: yourStrong(!)Password
+- Database: MSSQL
+- Account: SA
+- Password: yourStrong(!)Password
 
 ### Table
 - table name: product
@@ -45,7 +45,7 @@ Password: yourStrong(!)Password
 
 ## Tasks
 
-1. Create REST API for showing products related to input continent 
+### 1. Create REST API for showing products related to input continent 
 input
 ```
 GET: localhost:8080/v1/product?continent=asia
@@ -86,7 +86,7 @@ response  when product(s) found (***the type must be the same as example***)
         "price": 11.111111,
         "continent": "asia",
         "multiplier": 2.5,
-        "createdAt": "2021-01-01T00:00:00"
+        "createdAt": "2021-01-01T00:00:00.000"
     },
     {
         "id": "5c405847-f1e5-274b-bd5b-d9df7db36bc3",
@@ -106,7 +106,7 @@ response when product not found
 note: HTTP status 200
 ```
 
-2. Create REST API for adding new product
+### 2. Create REST API for adding new product
 input (***the type must be the same as example***)
 ```
 POST: localhost:8080/v1/product
@@ -130,7 +130,7 @@ response when create successful (***the type must be the same as example***)
 note: HTTP status 201
 ```
 
-3. Modify REST API in (1) and (2) to show more field as below response
+### 3. Modify REST API in (1) and (2) to show more field as below response
 	1. field name = multipliedValue
 	2. field value = price * multiplier
 	3. field decimal = 6 with rounding mode Floor (1.1234567 will be shown as 1.123456, 1.123 will be shown as 1.123000)
@@ -178,7 +178,7 @@ response  when product(s) found (***the type must be the same as example***)
         "price": 11.111111,
         "continent": "asia",
         "multiplier": 2.5,
-        "createdAt": "2021-01-01T00:00:00",
+        "createdAt": "2021-01-01T00:00:00.000",
         "multipliedValue": 27.777777
     },
     {
@@ -193,5 +193,5 @@ response  when product(s) found (***the type must be the same as example***)
 
 note: HTTP status 200
 ```
-4. Please list on how can we improve? db, controller, etc. 
-	1. example: add validation
+### 4. Please list on what and how can we improve?
+example: add validation
