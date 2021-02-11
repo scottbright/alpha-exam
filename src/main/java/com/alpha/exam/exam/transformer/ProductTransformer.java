@@ -6,6 +6,7 @@ import com.alpha.exam.exam.request.ProductRequest;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class ProductTransformer {
@@ -14,7 +15,7 @@ public class ProductTransformer {
     return ProductDTO.builder()
         .id(productEntity.getId())
         .continent(productEntity.getContinent())
-        .createdAt(productEntity.getCreatedAt())
+        .createdAt(productEntity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS")))
         .multiplier(new BigDecimal(productEntity.getMultiplier()))
         .price(new BigDecimal(productEntity.getPrice()))
         .multipliedValue(new BigDecimal(productEntity.getMultiplier()).multiply(new BigDecimal(productEntity.getPrice())).setScale(6, RoundingMode.FLOOR))

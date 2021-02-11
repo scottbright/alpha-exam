@@ -23,7 +23,7 @@ public class ProductDTO {
 
   private BigDecimal multiplier;
 
-  private LocalDateTime createdAt;
+  private String createdAt;
 
   private BigDecimal multipliedValue;
 
