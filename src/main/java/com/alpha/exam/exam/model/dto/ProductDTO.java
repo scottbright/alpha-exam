@@ -23,4 +23,6 @@ public class ProductDTO {
 
   private String createdAt;
 
+  private BigDecimal multipliedValue;
+
 }

@@ -37,6 +37,7 @@ public class ProductControllerTest {
         .continent("asia")
         .multiplier(new BigDecimal("4"))
         .createdAt("2021-01-03T00:00:00.123")
+        .multipliedValue(new BigDecimal("2220.492000"))
         .build()));
 
     //When
@@ -49,6 +50,7 @@ public class ProductControllerTest {
         .continent("asia")
         .multiplier(new BigDecimal("4"))
         .createdAt("2021-01-03T00:00:00.123")
+        .multipliedValue(new BigDecimal("2220.492000"))
         .build());
 
     assertEquals(HttpStatus.OK, actual.getStatusCode());
