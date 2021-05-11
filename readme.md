@@ -197,4 +197,7 @@ note: HTTP status 200
 note2: createdAt always show 3 digits of milliseconds
 ```
 ### 4. Please list on what and how can we improve?
-example: add validation
+1. Global exception handler must be included to return a proper response message format back to client.
+2. For product insertion API, we should handle the case when product insertion fails.
+   A proper response in JSON format with 4xx http status can be a good choice.
+3. If duplicate data prevention is needed, data validation for new product is required before inserting it.
