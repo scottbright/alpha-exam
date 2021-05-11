@@ -3,19 +3,29 @@ package com.alpha.exam.exam.controller;
 
 import com.alpha.exam.exam.model.Product;
 import com.alpha.exam.exam.services.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping(value = "/v1")
 public class ProductController {
 
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
 
-    @GetMapping("v1/product")
-    public Product getProductByContinent(@RequestParam("continent") String continent) {
-        return productService.findProductByContinent(continent);
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping(value = "/product")
+    public ResponseEntity<List<Product>> getProductByContinent(@RequestParam("continent") String continent) {
+        return ResponseEntity.ok(productService.findProductByContinent(continent));
+    }
+
+    @PostMapping(value = "/product")
+    public ResponseEntity<Product> insertProduct(@RequestBody Product product) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.insertProduct(product));
     }
 }
